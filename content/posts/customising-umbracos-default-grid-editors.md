@@ -1,0 +1,12 @@
++++
+title = "Customising Umbraco's Default Grid Editors"
+date = 2016-10-19T20:18:00Z
+updated = 2016-10-19T20:18:23Z
+tags = ["MVC", "Umbraco", "ASP.NET", "C#"]
+blogimport = true 
+[author]
+	name = "Matt Wanchap"
+	uri = "https://www.blogger.com/profile/16465307324394182190"
++++
+
+<br /><ol><li>Create a new directory in App_Plugins called anything you like. &nbsp;This will be your "package" directory</li><li>Copy the web.config file that's inside the main "Views" directory (not your project's main web.config!) into your package directory. &nbsp;This is needed for MVC to work properly</li><li>Create a package.manifest file and put this in it (come back and modify these properties as necessary):<br /><br /><pre>{<br /> "gridEditors":<br /> [{<br />  "name": "Speaker Portrait",<br />  "alias": "speakerPortrait",<br />  "view": "media",<br />  "render": "/app_plugins/yourpackagedir/MediaMarkup.cshtml",<br />  "icon": "icon-picture",<br />  "config":<br />  {<br />   "style": "height:270px; width:187px",<br />   "markup": ""&lt;a class='image featured'&gt;#value#&lt;/a&gt;""<br />  }<br /> }]<br />}<br /></pre></li><li>Find the .cshtml file for the editor you're modifying in \Views\Partials\Grid\Editors and copy it into your package directory</li><li>Edit that to add the functionality you want, I added "markup" to the media editor like so:<br /><br /><pre>@model dynamic<br />@using Umbraco.Web.Templates<br /><br />@if (Model.value != null)<br />{<br />    var url = Model.value.image;<br />    if(Model.editor.config != null &amp;&amp; Model.editor.config.size != null){<br />        url += "?width=" + Model.editor.config.size.width;<br />        url += "&amp;height=" + Model.editor.config.size.height;<br /><br />        if(Model.value.focalPoint != null){<br />            url += "&amp;center=" + Model.value.focalPoint.top +"," + Model.value.focalPoint.left;<br />            url += "&amp;mode=crop";<br />        }<br />    }<br /><br />    var element = $"&lt;img src=\"{url}\" alt=\"{Model.value.altText}\"&gt;";<br />    string markup = Model.editor.config.markup.ToString();<br /><br />    if (!markup.Contains("#value#"))<br />    {<br />        throw new Exception("Error: markup not configured correctly");<br />    }<br /><br />    markup = markup.Replace("#value#", element);<br />    @Html.Raw(markup);<br /><br />    if (Model.value.caption != null)<br />    {<br />        &lt;p class="caption"&gt;@Model.value.caption&lt;/p&gt;<br />    }<br />}<br /></pre></li></ol>

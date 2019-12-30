@@ -1,0 +1,7 @@
+baseURL = "https://new.wanchap.com/"
+languageCode = "en-us"
+title = "Matt Wanchap"
+theme = "hyde-hyde"
+
+[markup.goldmark.renderer]
+unsafe = true

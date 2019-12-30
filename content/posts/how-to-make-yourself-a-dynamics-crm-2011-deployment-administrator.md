@@ -1,0 +1,12 @@
++++
+title = "How to make yourself a Dynamics CRM 2011 Deployment Administrator"
+date = 2015-09-01T16:53:00Z
+updated = 2015-09-01T16:53:12Z
+tags = ["T-SQL", "Dynamics CRM 2011"]
+blogimport = true 
+[author]
+	name = "Matt Wanchap"
+	uri = "https://www.blogger.com/profile/16465307324394182190"
++++
+
+Today I needed to deactivate one of our Dynamics organisations, but when I opened the Dynamics Deployment Manager, I received the following error:<br /><br /><blockquote class="tr_bq">"Only the Deployment Administrators are able to use Deployment Manager. You are not a Deployment Administrator."</blockquote><br />Bummer. I did a bit of Googling and found <a href="http://ronaldlemmen.blogspot.com.au/2015/02/find-out-deployment-administrators.html">this post</a> by Ronald Lemmen (thanks for pointing me in the right direction!). &nbsp;Since the Dynamics Deployment Manager is obviously checking the MSCRM_CONFIG database for this information I attached a database trace to it and found that it's executing these queries (among many others):<br /><br /><pre>exec sp_executesql N'SELECT &nbsp;Id, [DefaultOrganizationId], [IsDisabled], [Name] &nbsp;<br />FROM [SystemUser] &nbsp;<br />WHERE ((([Name] = @Name0)) ) AND (IsDeleted = 0) ',<br />N'@Name0 nvarchar(41)',@Name0=N'{My windows domain account}'</pre><br /><pre>exec sp_executesql N'SELECT &nbsp;Id, [Name], [UniqueifierId] &nbsp;<br />FROM [SecurityRole] &nbsp; <br />WHERE ((([Name] = @Name0)) ) AND (IsDeleted = 0) ',<br />N'@Name0 nvarchar(13)',@Name0=N'Administrator'</pre><br /><pre>exec sp_executesql N'SELECT &nbsp;Id &nbsp;<br />FROM [SystemUserRoles] &nbsp;<br />WHERE ((([SecurityRoleId] = @SecurityRoleId0) AND ([SystemUserId] = @SystemUserId1)) ) AND (IsDeleted = 0) ',<br />N'@SecurityRoleId0 uniqueidentifier,@SystemUserId1 uniqueidentifier',<br />@SecurityRoleId0='{ID of Admin Role}',@SystemUserId1='{ID of my SystemUser record}'</pre><br />From there it was actually a pretty simple task: insert a couple records to SystemUser and SystemUserRoles to indicate that my domain account is in the "Administrator" role<br /><br /><pre>INSERT INTO [MSCRM_CONFIG].[dbo].[SystemUser]<br />(Name, IsDeleted, DefaultOrganizationId, Id, IsDisabled) VALUES<br />('{My windows domain account}', 0, '00000000-0000-0000-0000-000000000000', NEWID(), NULL)</pre><br /><pre>INSERT INTO [SystemUserRoles]<br />(Id, SecurityRoleId, SystemUserId, IsDeleted) VALUES<br />(NEWID(), '{ID of Administrator Role}', '{ID of the SystemUser record just created}', 0)</pre><br />And now I can open Dynamics CRM Deployment Manager!
