@@ -4,4 +4,17 @@ title = "Matt Wanchap"
 theme = "hyde-hyde"
 
 [markup.goldmark.renderer]
-unsafe = true
+    unsafe = true
+
+[params.social]
+    twitter = "MattWanchap"
+    github = "mwanchap"
+    facebook = "mwanchap"
+    linkedin = "mwanchap"
+    stackoverflow = "2939759"
+
+[[menu.main]]
+    name = "Projects"
+    identifier = "portfolio"
+    weight = 0
+    url = "/portfolio/"
