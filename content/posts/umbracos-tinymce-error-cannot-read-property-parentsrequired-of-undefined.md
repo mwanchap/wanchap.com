@@ -1,7 +1,7 @@
 +++
-title = "Umbraco's TinyMCE error: Cannot read property 'parentsRequired' of undefined"
+title = "Umbraco's TinyMCE error: 'Cannot read property parentsRequired of undefined'"
 date = 2018-01-17T16:07:00Z
-updated = 2018-01-17T16:09:25Z
+updated = 2020-03-13T22:49:21Z
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

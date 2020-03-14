@@ -1,7 +1,7 @@
 +++
-title = "Visual Studio - Find was stopped in progress"
+title = "Visual Studio - 'Find was stopped in progress'"
 date = 2014-05-29T16:08:00Z
-updated = 2014-05-29T16:08:05Z
+updated = 2020-03-13T22:49:47Z
 tags = ["Visual Studio"]
 blogimport = true 
 [author]

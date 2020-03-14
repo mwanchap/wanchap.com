@@ -1,7 +1,7 @@
 +++
-title = "Powershell error: Retrieving COM class factory failed: class not registered (REGDB_E_CLASSNOTREG)"
+title = "Powershell error: 'Retrieving COM class factory failed: class not registered (REGDB_E_CLASSNOTREG)'"
 date = 2019-11-05T17:55:00Z
-updated = 2019-11-05T17:55:00Z
+updated = 2020-03-13T22:46:20Z
 tags = ["Powershell", "IIS"]
 blogimport = true 
 [author]

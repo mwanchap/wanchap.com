@@ -1,7 +1,10 @@
-baseURL = "https://new.wanchap.com/"
+baseURL = "https://wanchap.com/"
 languageCode = "en-us"
 title = "Matt Wanchap"
 theme = "hyde-hyde"
+
+[params]
+    authorimage = "matt.jpg"
 
 [markup.goldmark.renderer]
     unsafe = true

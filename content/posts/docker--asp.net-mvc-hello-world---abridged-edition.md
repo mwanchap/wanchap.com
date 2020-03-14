@@ -1,7 +1,7 @@
 +++
 title = "Docker + ASP.NET MVC Hello world - abridged edition"
 date = 2018-12-26T19:42:00Z
-updated = 2018-12-26T19:42:55Z
+updated = 2020-03-13T22:45:48Z
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

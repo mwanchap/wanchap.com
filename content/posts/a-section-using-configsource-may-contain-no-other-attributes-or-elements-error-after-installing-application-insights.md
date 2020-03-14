@@ -1,7 +1,7 @@
 +++
-title = "A section using 'configSource' may contain no other attributes or elements error after installing Application Insights"
+title = "'A section using configSource may contain no other attributes or elements' error after installing Application Insights"
 date = 2018-05-03T23:45:00Z
-updated = 2018-08-25T01:46:51Z
+updated = 2020-03-13T22:44:42Z
 tags = ["Umbraco", "ASP.NET", "Application Insights"]
 blogimport = true 
 [author]
