@@ -2,7 +2,7 @@
 title = "Customising Umbraco's Default Grid Editors"
 date = 2016-10-19T20:18:00Z
 updated = 2016-10-19T20:18:23Z
-tags = ["MVC", "Umbraco", "ASP.NET", "C#"]
+tags = ["MVC", "Umbraco", "ASP.NET", "C-sharp"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

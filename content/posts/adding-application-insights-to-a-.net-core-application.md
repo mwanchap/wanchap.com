@@ -2,7 +2,7 @@
 title = "Adding Application Insights to a .NET Core application"
 date = 2018-09-20T13:37:00Z
 updated = 2018-09-30T23:17:14Z
-tags = ["MVC", "Visual Studio", "ASP.NET", "Azure", "C#", ".NET Core"]
+tags = ["MVC", "Visual Studio", "ASP.NET", "Azure", "C-sharp", ".NET Core"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

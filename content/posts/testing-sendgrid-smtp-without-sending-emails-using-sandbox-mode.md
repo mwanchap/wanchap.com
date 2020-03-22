@@ -2,7 +2,7 @@
 title = "Testing Sendgrid SMTP without sending emails using sandbox mode"
 date = 2019-03-03T17:19:00Z
 updated = 2019-03-03T17:19:56Z
-tags = ["Sendgrid", "C#"]
+tags = ["Sendgrid", "C-sharp"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

@@ -2,7 +2,7 @@
 title = "Auto-Incrementing Build Number in Visual Studio and WiX Installer"
 date = 2016-03-20T18:17:00Z
 updated = 2016-03-20T18:17:44Z
-tags = ["Visual Studio", "WiX", "C#"]
+tags = ["Visual Studio", "WiX", "C-sharp"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

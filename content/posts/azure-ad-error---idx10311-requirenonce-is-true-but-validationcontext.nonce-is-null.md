@@ -2,7 +2,7 @@
 title = "Azure AD error - 'IDX10311: RequireNonce is true but validationContext.Nonce is null'"
 date = 2019-03-13T22:45:00Z
 updated = 2020-03-13T22:45:02Z
-tags = ["Active Directory", "Azure", "C#"]
+tags = ["Active Directory", "Azure", "C-sharp"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

@@ -2,7 +2,7 @@
 title = "Formats for dealing with dates and datetimes in Salesforce"
 date = 2019-04-23T22:09:00Z
 updated = 2020-01-05T22:47:18Z
-tags = ["Salesforce", "C#"]
+tags = ["Salesforce", "C-sharp"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"

@@ -2,7 +2,7 @@
 title = "Authentication error querying Dynamics CRM OrganisationService"
 date = 2015-05-02T21:28:00Z
 updated = 2015-05-22T18:59:38Z
-tags = ["C#", "Dynamics CRM 2011", "IIS"]
+tags = ["C-sharp", "Dynamics CRM 2011", "IIS"]
 blogimport = true 
 [author]
 	name = "Matt Wanchap"
